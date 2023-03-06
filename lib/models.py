@@ -5,5 +5,12 @@ from sqlalchemy.ext.declarative import declarative_base
 
 Base = declarative_base()
 
+# 1 contains model "Dog" with name and breed attributes.
 class Dog(Base):
-    pass
+    __tablename__ = 'dog'
+
+    __table_args__ = (PrimaryKeyConstraint('id'),)
+
+    id = Column(Integer, primary_key=True)
+    name = Column(String)
+    breed = Column(String)
